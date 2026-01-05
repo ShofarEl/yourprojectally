@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useAuth } from '../contexts/AuthContext'
-import { Eye, EyeOff, Mail, Lock, User, ArrowLeft, CheckCircle } from 'lucide-react'
+import { Eye, EyeOff, Mail, Lock, User, ArrowLeft, CheckCircle, BookOpen } from 'lucide-react'
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -106,52 +106,94 @@ const Signup = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-primary-100 flex items-center justify-center p-6">
-      <div className="w-full max-w-md">
-        {/* Back to Home */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="mb-8"
-        >
-          <Link 
-            to="/" 
-            className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+    <div className="min-h-screen bg-white flex">
+      {/* Left Side - Image */}
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-teal-600 to-teal-800 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `linear-gradient(135deg, rgba(13, 148, 136, 0.8) 0%, rgba(20, 184, 166, 0.6) 100%), 
+                               url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
+            }}
+          />
+        </div>
+        
+        <div className="relative z-10 flex flex-col justify-center items-center p-8 text-white">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
           >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
-          </Link>
-        </motion.div>
-
-        {/* Signup Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="card"
-        >
-          {/* Header */}
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold">YPA</span>
+            <BookOpen className="w-12 h-12 mx-auto mb-4 text-white/90" />
+            <h2 className="text-2xl font-bold mb-3">Join YourProjectAlly Today</h2>
+            <p className="text-base text-white/90 mb-6 max-w-md">
+              Start your academic journey with expert writers and achieve excellence
+            </p>
+            <div className="space-y-3 text-left max-w-sm">
+              <div className="flex items-center space-x-2">
+                <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                <span className="text-sm text-white/90">Free account setup</span>
               </div>
-              <span className="text-2xl font-bold text-gray-900">YourProjectAlly</span>
+              <div className="flex items-center space-x-2">
+                <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                <span className="text-sm text-white/90">Instant writer matching</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                <span className="text-sm text-white/90">Secure & confidential</span>
+              </div>
             </div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">Create your account</h1>
-            <p className="text-gray-600">Join thousands of teams already using YourProjectAlly</p>
-          </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Right Side - Signup Form */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-6">
+        <div className="w-full max-w-sm">
+          {/* Back to Home */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="mb-6"
+          >
+            <Link 
+              to="/" 
+              className="inline-flex items-center text-gray-600 hover:text-teal-600 transition-colors text-sm font-medium"
+            >
+              <ArrowLeft className="w-3 h-3 mr-1" />
+              Back to Home
+            </Link>
+          </motion.div>
+
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-center mb-6"
+          >
+            <h1 className="text-2xl font-bold text-gray-900 mb-1">Create Account</h1>
+            <p className="text-sm text-gray-600">Join thousands of students achieving academic success</p>
+          </motion.div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <motion.form
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            onSubmit={handleSubmit} 
+            className="space-y-4"
+          >
             {/* Name Field */}
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="name" className="block text-xs font-semibold text-gray-700 mb-1">
                 Full Name
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <User className="h-5 w-5 text-gray-400" />
+                  <User className="h-4 w-4 text-gray-400" />
                 </div>
                 <input
                   id="name"
@@ -160,21 +202,21 @@ const Signup = () => {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className={`input-field pl-10 ${errors.name ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : ''}`}
+                  className={`w-full pl-10 pr-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white ${errors.name ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : ''}`}
                   placeholder="Enter your full name"
                 />
               </div>
-              {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
+              {errors.name && <p className="mt-1 text-xs text-red-600">{errors.name}</p>}
             </div>
 
             {/* Email Field */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="email" className="block text-xs font-semibold text-gray-700 mb-1">
                 Email Address
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Mail className="h-5 w-5 text-gray-400" />
+                  <Mail className="h-4 w-4 text-gray-400" />
                 </div>
                 <input
                   id="email"
@@ -183,21 +225,21 @@ const Signup = () => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className={`input-field pl-10 ${errors.email ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : ''}`}
+                  className={`w-full pl-10 pr-3 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white ${errors.email ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : ''}`}
                   placeholder="Enter your email"
                 />
               </div>
-              {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+              {errors.email && <p className="mt-1 text-xs text-red-600">{errors.email}</p>}
             </div>
 
             {/* Password Field */}
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="password" className="block text-xs font-semibold text-gray-700 mb-1">
                 Password
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Lock className="h-5 w-5 text-gray-400" />
+                  <Lock className="h-4 w-4 text-gray-400" />
                 </div>
                 <input
                   id="password"
@@ -206,7 +248,7 @@ const Signup = () => {
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  className={`input-field pl-10 pr-10 ${errors.password ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : ''}`}
+                  className={`w-full pl-10 pr-10 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white ${errors.password ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : ''}`}
                   placeholder="Create a password"
                 />
                 <button
@@ -215,20 +257,20 @@ const Signup = () => {
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
-                    <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-600" />
+                    <EyeOff className="h-4 w-4 text-gray-400 hover:text-gray-600" />
                   ) : (
-                    <Eye className="h-5 w-5 text-gray-400 hover:text-gray-600" />
+                    <Eye className="h-4 w-4 text-gray-400 hover:text-gray-600" />
                   )}
                 </button>
               </div>
               
               {/* Password Strength Indicator */}
               {formData.password && (
-                <div className="mt-2">
+                <div className="mt-1">
                   <div className="flex items-center space-x-2">
-                    <div className="flex-1 bg-gray-200 rounded-full h-2">
+                    <div className="flex-1 bg-gray-200 rounded-full h-1.5">
                       <div 
-                        className={`h-2 rounded-full transition-all duration-300 ${getStrengthColor(passwordStrength(formData.password))}`}
+                        className={`h-1.5 rounded-full transition-all duration-300 ${getStrengthColor(passwordStrength(formData.password))}`}
                         style={{ width: `${(passwordStrength(formData.password) / 4) * 100}%` }}
                       ></div>
                     </div>
@@ -239,17 +281,17 @@ const Signup = () => {
                 </div>
               )}
               
-              {errors.password && <p className="mt-1 text-sm text-red-600">{errors.password}</p>}
+              {errors.password && <p className="mt-1 text-xs text-red-600">{errors.password}</p>}
             </div>
 
             {/* Confirm Password Field */}
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="confirmPassword" className="block text-xs font-semibold text-gray-700 mb-1">
                 Confirm Password
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Lock className="h-5 w-5 text-gray-400" />
+                  <Lock className="h-4 w-4 text-gray-400" />
                 </div>
                 <input
                   id="confirmPassword"
@@ -258,7 +300,7 @@ const Signup = () => {
                   required
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  className={`input-field pl-10 pr-10 ${errors.confirmPassword ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : ''}`}
+                  className={`w-full pl-10 pr-10 py-2.5 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white ${errors.confirmPassword ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : ''}`}
                   placeholder="Confirm your password"
                 />
                 <button
@@ -267,45 +309,67 @@ const Signup = () => {
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                 >
                   {showConfirmPassword ? (
-                    <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-600" />
+                    <EyeOff className="h-4 w-4 text-gray-400 hover:text-gray-600" />
                   ) : (
-                    <Eye className="h-5 w-5 text-gray-400 hover:text-gray-600" />
+                    <Eye className="h-4 w-4 text-gray-400 hover:text-gray-600" />
                   )}
                 </button>
               </div>
               {formData.confirmPassword && formData.password === formData.confirmPassword && (
                 <div className="mt-1 flex items-center text-green-600">
-                  <CheckCircle className="w-4 h-4 mr-1" />
-                  <span className="text-sm">Passwords match</span>
+                  <CheckCircle className="w-3 h-3 mr-1" />
+                  <span className="text-xs">Passwords match</span>
                 </div>
               )}
-              {errors.confirmPassword && <p className="mt-1 text-sm text-red-600">{errors.confirmPassword}</p>}
+              {errors.confirmPassword && <p className="mt-1 text-xs text-red-600">{errors.confirmPassword}</p>}
             </div>
 
             {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}
-              className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+              className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 px-4 text-sm rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               {loading ? (
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
               ) : (
-                'Create Account'
+                'Create Your Account'
               )}
             </button>
-          </form>
+          </motion.form>
+
+          {/* Divider */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="my-6"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-300"></div>
+              </div>
+              <div className="relative flex justify-center text-xs">
+                <span className="px-3 bg-white text-gray-500 font-medium">Already have an account?</span>
+              </div>
+            </div>
+          </motion.div>
 
           {/* Sign In Link */}
-          <div className="mt-8 text-center">
-            <p className="text-gray-600">
-              Already have an account?{' '}
-              <Link to="/login" className="text-primary-600 hover:text-primary-700 font-medium">
-                Sign in
-              </Link>
-            </p>
-          </div>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="text-center"
+          >
+            <Link 
+              to="/login" 
+              className="w-full inline-block bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2.5 px-4 text-sm rounded-lg transition-all duration-200 border border-gray-300 hover:border-gray-400"
+            >
+              Sign In to Existing Account
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </div>
   )
