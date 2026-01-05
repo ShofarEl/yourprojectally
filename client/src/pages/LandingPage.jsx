@@ -1,129 +1,218 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, CheckCircle, Users, Star, BookOpen, PenTool, Award, Clock, Shield, Zap } from 'lucide-react'
+import { ArrowRight, CheckCircle, Users, Star, BookOpen, PenTool, Award } from 'lucide-react'
 import Navigation from '../components/Navigation'
 
 const LandingPage = () => {
   const features = [
     {
-      icon: <PenTool className="w-5 h-5" />,
-      title: "Expert Academic Writers",
-      description: "PhD-qualified writers from top universities worldwide"
+      icon: <PenTool className="w-6 h-6" />,
+      title: "AI-Powered Writing Assistant",
+      description: "Get intelligent suggestions for grammar, style, and academic formatting"
     },
     {
-      icon: <Clock className="w-5 h-5" />,
-      title: "24/7 Support",
-      description: "Round-the-clock assistance for all your academic needs"
+      icon: <BookOpen className="w-6 h-6" />,
+      title: "Research Integration",
+      description: "Seamlessly integrate citations and references from academic databases"
     },
     {
-      icon: <Shield className="w-5 h-5" />,
-      title: "100% Original Work",
-      description: "Plagiarism-free content with quality guarantee"
+      icon: <Award className="w-6 h-6" />,
+      title: "Academic Standards",
+      description: "Built-in templates for APA, MLA, Chicago, and other citation styles"
     }
   ]
 
   const testimonials = [
     {
-      name: "Sarah Chen",
-      role: "PhD Student, Harvard",
-      content: "YourProjectAlly helped me complete my dissertation with confidence. The quality is exceptional!",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face"
+      name: "Kemi Adebayo",
+      role: "PhD Student, Psychology",
+      content: "YourProjectAlly transformed my dissertation writing process. The citation management is incredible!",
+      rating: 5
     },
     {
-      name: "Michael Rodriguez",
-      role: "Master's Student, MIT",
-      content: "Professional service that delivered exactly what I needed. Highly recommend!",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face"
+      name: "Chinedu Okafor",
+      role: "Master's Student, Engineering",
+      content: "Finally, a platform that understands academic writing. My grades improved significantly.",
+      rating: 5
     },
     {
-      name: "Emily Johnson",
-      role: "Undergraduate, Stanford",
-      content: "The writers understood my requirements perfectly. Amazing experience!",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face"
+      name: "Fatima Abdullahi",
+      role: "Undergraduate, Literature",
+      content: "The AI writing assistant helped me develop my academic voice. Highly recommend!",
+      rating: 5
+    }
+  ]
+
+  const academicLevels = [
+    {
+      title: "Undergraduate",
+      description: "Perfect for essays, research papers, and thesis projects",
+      features: ["Essay writing support", "Basic citation help", "Grammar checking", "Peer collaboration"]
+    },
+    {
+      title: "Graduate",
+      description: "Advanced tools for master's theses and comprehensive exams",
+      features: ["Advanced research tools", "Thesis templates", "Supervisor collaboration", "Progress tracking"]
+    },
+    {
+      title: "Postgraduate",
+      description: "Comprehensive support for dissertations and academic publications",
+      features: ["Publication templates", "Advanced analytics", "Multi-document projects", "Academic networking"]
     }
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-teal-50 via-white to-teal-100">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-[70vh] flex items-center overflow-hidden bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }} />
+      <section className="relative h-[70vh] flex items-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `linear-gradient(135deg, rgba(13, 148, 136, 0.85) 0%, rgba(20, 184, 166, 0.75) 100%), 
+                               url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
+            }}
+          >
+          </div>
         </div>
 
-        <div className="relative z-10 w-full px-4 md:px-6">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            {/* Hero Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-white"
-            >
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-                <Zap className="w-4 h-4 mr-2 text-yellow-300" />
-                <span className="text-sm font-medium">Trusted by 10,000+ Students</span>
+        {/* Content Overlay */}
+        <div className="relative z-10 w-full px-4 py-16 md:px-6 md:py-20">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-2xl mx-auto text-center">
+              {/* Hero Content */}
+              <div className="text-white">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-3 md:mb-4"
+                >
+                  <span className="text-teal-200 font-semibold text-xs md:text-sm uppercase tracking-wide">
+                    Welcome to YourProjectAlly
+                  </span>
+                </motion.div>
+                
+                <motion.h1 
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 leading-tight"
+                >
+                  Excellence in Academic Writing
+                  <span className="block">Made Simple</span>
+                </motion.h1>
+                
+                <motion.p 
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="text-sm md:text-base mb-6 md:mb-8 leading-relaxed text-white/90 max-w-lg mx-auto px-4 md:px-0"
+                >
+                  Connect with expert academic writers who specialize in your field. 
+                  Get professional help with essays, research papers, dissertations, and more.
+                </motion.p>
+                
+                <motion.div 
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4 md:px-0"
+                >
+                  <Link to="/signup" className="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 md:py-3 px-5 md:px-6 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2 shadow-lg text-xs md:text-sm uppercase tracking-wide">
+                    <span>GET WRITING HELP</span>
+                    <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
+                  </Link>
+                  <Link to="/login" className="border-2 border-white/30 hover:border-white/50 text-white font-semibold py-2.5 md:py-3 px-5 md:px-6 rounded-lg transition-colors duration-200 bg-white/10 backdrop-blur-sm text-xs md:text-sm uppercase tracking-wide">
+                    FIND WRITERS
+                  </Link>
+                </motion.div>
               </div>
-              
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Academic Excellence
-                <span className="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
-                  Made Simple
-                </span>
-              </h1>
-              
-              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-                Connect with world-class academic writers and transform your educational journey with professional support.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link 
-                  to="/signup" 
-                  className="group bg-white text-teal-700 font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:bg-yellow-300 hover:text-teal-800 flex items-center justify-center shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="px-4 py-12 md:px-6 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
+            {/* Benefits Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl">
+                {/* Background Image */}
+                <div 
+                  className="w-full h-full bg-cover bg-center bg-no-repeat"
+                  style={{
+                    backgroundImage: `url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
+                  }}
                 >
-                  <span>Start Your Journey</span>
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link 
-                  to="/writers" 
-                  className="border-2 border-white/30 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:bg-white/10 backdrop-blur-sm"
-                >
-                  Browse Writers
-                </Link>
+                </div>
               </div>
             </motion.div>
 
-            {/* Hero Image */}
+            {/* Benefits Content */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
             >
-              <div className="relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                  alt="Students collaborating"
-                  className="rounded-2xl shadow-2xl"
-                />
-                <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-xl">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                      <CheckCircle className="w-6 h-6 text-green-600" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900">98% Success Rate</p>
-                      <p className="text-sm text-gray-600">Student Satisfaction</p>
-                    </div>
+              <div className="mb-4 md:mb-6">
+                <span className="text-teal-600 font-semibold text-xs md:text-sm uppercase tracking-wide">
+                  Academic Writing Services
+                </span>
+              </div>
+              
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 md:mb-8">
+                Benefits of Professional
+                <span className="block">Academic Writing Help</span>
+              </h2>
+              
+              <div className="space-y-4 md:space-y-6">
+                <div className="flex items-start space-x-3 md:space-x-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-teal-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <PenTool className="w-5 h-5 md:w-6 md:h-6 text-teal-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-1 md:mb-2">Expert Writers</h3>
+                    <p className="text-sm md:text-base text-gray-600">
+                      Work with qualified academic writers who have advanced degrees from top universities. 
+                      Get professional help tailored to your specific field of study.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-3 md:space-x-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Award className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-1 md:mb-2">Quality Guarantee</h3>
+                    <p className="text-sm md:text-base text-gray-600">
+                      All work is original, properly cited, and meets academic standards. 
+                      We guarantee plagiarism-free content that follows your institution's guidelines.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-3 md:space-x-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Users className="w-5 h-5 md:w-6 md:h-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-1 md:mb-2">24/7 Support</h3>
+                    <p className="text-sm md:text-base text-gray-600">
+                      Get round-the-clock support from our team. Direct communication with writers 
+                      via WhatsApp ensures you stay updated on your project's progress.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -132,24 +221,74 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <motion.div
+      {/* Academic Levels Section */}
+      <section className="px-4 py-12 md:px-6 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose YourProjectAlly?
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 md:mb-4">
+              Supporting Every Academic Journey
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We provide comprehensive academic support with a focus on quality, reliability, and student success.
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4 md:px-0">
+              From your first essay to your doctoral dissertation, we're here to help you succeed
             </p>
           </motion.div>
+          
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            {academicLevels.map((level, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+                className="card text-center hover:shadow-lg transition-shadow duration-300 border-2 border-transparent hover:border-teal-200 p-4 md:p-6"
+              >
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center mx-auto mb-4 md:mb-6">
+                  <Award className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                </div>
+                <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-2 md:mb-3">
+                  {level.title}
+                </h3>
+                <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-6">
+                  {level.description}
+                </p>
+                <ul className="space-y-1.5 md:space-y-2 text-left">
+                  {level.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center space-x-2">
+                      <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-green-500 flex-shrink-0" />
+                      <span className="text-xs md:text-sm text-gray-600">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-3 gap-8">
+      {/* Features Section */}
+      <section className="px-4 py-12 md:px-6 md:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 md:mb-16"
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 md:mb-4">
+              Powerful Tools for Academic Success
+            </h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4 md:px-0">
+              Everything you need to write, research, and excel in your academic pursuits
+            </p>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -157,17 +296,15 @@ const LandingPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                className="card text-center hover:shadow-lg transition-shadow duration-300 p-4 md:p-6"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <div className="text-white">
-                    {feature.icon}
-                  </div>
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-teal-100 rounded-lg flex items-center justify-center mx-auto mb-3 md:mb-4 text-teal-600">
+                  {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-sm md:text-base text-gray-600">
                   {feature.description}
                 </p>
               </motion.div>
@@ -176,94 +313,24 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Academic Services Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                  alt="Academic writing"
-                  className="rounded-2xl shadow-2xl"
-                />
-                <div className="absolute -top-6 -right-6 bg-teal-600 text-white rounded-xl p-4 shadow-xl">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold">50+</div>
-                    <div className="text-sm opacity-90">Expert Writers</div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="inline-flex items-center bg-teal-100 text-teal-700 rounded-full px-4 py-2 mb-6">
-                <BookOpen className="w-4 h-4 mr-2" />
-                <span className="text-sm font-semibold">Academic Excellence</span>
-              </div>
-              
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Professional Academic Writing Services
-              </h2>
-              
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                From essays to dissertations, our expert writers provide comprehensive support across all academic levels and disciplines.
-              </p>
-
-              <div className="space-y-4">
-                {[
-                  "Essays & Research Papers",
-                  "Thesis & Dissertations", 
-                  "Case Studies & Reports",
-                  "Literature Reviews"
-                ].map((service, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <div className="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center">
-                      <CheckCircle className="w-4 h-4 text-teal-600" />
-                    </div>
-                    <span className="text-gray-700 font-medium">{service}</span>
-                  </div>
-                ))}
-              </div>
-
-              <Link 
-                to="/writers" 
-                className="inline-flex items-center mt-8 bg-teal-600 text-white font-semibold py-3 px-6 rounded-xl hover:bg-teal-700 transition-colors"
-              >
-                <span>Explore Services</span>
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <motion.div
+      <section className="px-4 py-12 md:px-6 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 md:mb-4">
               Trusted by Students Worldwide
             </h2>
-            <p className="text-xl text-gray-600">
-              Join thousands of successful students who achieved their academic goals with us
+            <p className="text-base md:text-lg text-gray-600 px-4 md:px-0">
+              Join thousands of students who have improved their academic writing
             </p>
           </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
+          
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
@@ -271,28 +338,19 @@ const LandingPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="card p-4 md:p-6"
               >
-                <div className="flex items-center mb-4">
+                <div className="flex items-center mb-3 md:mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Star key={i} className="w-4 h-4 md:w-5 md:h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                
-                <p className="text-gray-600 mb-6 italic leading-relaxed">
+                <p className="text-sm md:text-base text-gray-600 mb-3 md:mb-4 italic">
                   "{testimonial.content}"
                 </p>
-                
-                <div className="flex items-center">
-                  <img 
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                  />
-                  <div>
-                    <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                    <p className="text-sm text-gray-600">{testimonial.role}</p>
-                  </div>
+                <div>
+                  <p className="text-sm md:text-base font-semibold text-gray-900">{testimonial.name}</p>
+                  <p className="text-xs md:text-sm text-gray-500">{testimonial.role}</p>
                 </div>
               </motion.div>
             ))}
@@ -301,75 +359,102 @@ const LandingPage = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-teal-600">
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
-            {[
-              { number: "10K+", label: "Happy Students" },
-              { number: "98%", label: "Success Rate" },
-              { number: "50+", label: "Expert Writers" },
-              { number: "24/7", label: "Support" }
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <div className="text-3xl md:text-4xl font-bold mb-2">{stat.number}</div>
-                <div className="text-white/80">{stat.label}</div>
-              </motion.div>
-            ))}
+      <section className="px-4 py-12 md:px-6 md:py-20 gradient-bg">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center text-white">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">5K+</div>
+              <div className="text-xs md:text-base text-white/80">Papers Completed</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">98%</div>
+              <div className="text-xs md:text-base text-white/80">Client Satisfaction</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">50+</div>
+              <div className="text-xs md:text-base text-white/80">Expert Writers</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">24/7</div>
+              <div className="text-xs md:text-base text-white/80">Support Available</div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-600/20 to-blue-600/20"></div>
-        <div className="relative max-w-4xl mx-auto px-4 md:px-6 text-center">
+      <section className="px-4 py-12 md:px-6 md:py-20 bg-gray-900">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6 px-4 md:px-0"
+          >
+            Ready to Excel in Your Academic Writing?
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-base md:text-lg text-gray-300 mb-6 md:mb-8 px-4 md:px-0"
+          >
+            Connect with expert writers and get the academic help you need to succeed
+          </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="px-4 md:px-0"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Transform Your Academic Journey?
-            </h2>
-            <p className="text-xl text-gray-300 mb-8">
-              Join thousands of students who have achieved academic excellence with our expert support
-            </p>
-            <Link 
-              to="/signup" 
-              className="inline-flex items-center bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold py-4 px-8 rounded-xl hover:from-teal-600 hover:to-teal-700 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-            >
-              <span>Get Started Today</span>
-              <ArrowRight className="w-5 h-5 ml-2" />
+            <Link to="/signup" className="bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 md:py-4 px-6 md:px-8 text-sm md:text-base rounded-lg transition-colors duration-200 inline-flex items-center space-x-2">
+              <span>Find Expert Writers</span>
+              <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
             </Link>
           </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-12 bg-gray-900 border-t border-gray-800">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 text-center">
-          <div className="flex items-center justify-center mb-6">
+      <footer className="px-4 py-6 md:px-6 md:py-8 bg-gray-900 text-white border-t border-gray-800">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="flex items-center justify-center mb-3 md:mb-4">
             <img 
               src="/image.png" 
               alt="YourProjectAlly" 
-              className="h-10 object-contain"
+              className="h-8 md:h-10 object-contain"
               onError={(e) => {
                 e.target.style.display = 'none';
                 e.target.nextSibling.style.display = 'inline';
               }}
             />
-            <span className="font-semibold text-white hidden ml-3">YourProjectAlly</span>
+            <span className="font-semibold text-white hidden">YourProjectAlly</span>
           </div>
-          <p className="text-gray-400 mb-4">
-            Empowering academic excellence through professional writing support
+          <p className="text-sm md:text-base text-gray-400 mb-3 md:mb-4 px-4 md:px-0">
+            Empowering academic excellence through intelligent writing tools
           </p>
-          <p className="text-gray-500 text-sm">
+          <p className="text-xs md:text-sm text-gray-500">
             © 2026 YourProjectAlly. All rights reserved.
           </p>
         </div>
