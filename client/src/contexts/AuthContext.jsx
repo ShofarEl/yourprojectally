@@ -4,6 +4,10 @@ import toast from 'react-hot-toast'
 
 const AuthContext = createContext()
 
+// Configure axios base URL
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
+axios.defaults.baseURL = API_URL
+
 export const useAuth = () => {
   const context = useContext(AuthContext)
   if (!context) {
